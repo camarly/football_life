@@ -37,6 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third-party apps
+    'rest_framework',
+
+    # Our custom apps
+    'api',
+    'players',
+    'teams',
+    'competitions',
+    'matches',
+    'transfers',
+    'utils',
 ]
 
 MIDDLEWARE = [
@@ -73,10 +85,20 @@ WSGI_APPLICATION = 'football_life.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'football_db',      # Database name
+        'USER': 'football_user',    # PostgreSQL username
+        'PASSWORD': 'securepassword',  # PostgreSQL password
+        'HOST': 'localhost',        # Running locally
+        'PORT': '5432',             # Default PostgreSQL port
     }
 }
 
