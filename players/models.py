@@ -84,7 +84,7 @@ class Player(models.Model):
     is_free_agent = models.BooleanField(default=False)  # Whether the player is a free agent
 
     # Linking to Coaches
-    coaches = models.ManyToManyField('Coach', related_name='players')
+    coaches = models.ManyToManyField('Coach', related_name='players', blank=True)
 
     def __str__(self):
         return f"{self.name} ({self.nationality})"
